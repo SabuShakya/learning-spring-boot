@@ -1,4 +1,4 @@
-##Dependency Injection and IoC
+**Dependency Injection and IoC**
 
 *Dependency Injection* means passing a dependent object as a parameter to a method rather than having the method create 
 the dependent object.
