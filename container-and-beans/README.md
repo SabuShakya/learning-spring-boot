@@ -1,4 +1,4 @@
-**IOC Container**
+## IOC Container ##
 
 It is a predefined program, or a component of Spring that implements IoC and DI. It injects dependencies into an object 
 and make it ready for use.The interface ApplicationContext represents the Spring IoC container and is responsible for
@@ -10,7 +10,7 @@ are injected automatically.
 
 ![Alt text](./ioc container.jpg?raw=true "Title")
 
-**ApplicationContext**
+### ApplicationContext ###
 
 It is an interface that represents the Spring IoC container and manages beans. It us a sub-interface of BeanFactory and 
 provides additional functionalities like resolving messages, supporting internationalization, publishing events, 
@@ -138,8 +138,11 @@ public class MyConfiguration {
 }
 
 ```
+References: 
+   -[x] [Spring IoC, Spring Bean Example Tutorial](https://www.journaldev.com/2461/spring-ioc-bean-example-tutorial)
+   -[x] [The Spring ApplicationContext](https://www.baeldung.com/spring-application-context)
 
-**Beans**
+### Beans ###
 
 Beans are simply the objects that are instantiated, assembled, managed by Spring IoC container and form backbone 
 of an application. Any normal Java POJO class can be a Spring Bean if it's configured to be initialized via container 
