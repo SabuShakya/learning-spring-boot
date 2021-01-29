@@ -18,7 +18,7 @@ and application-layer specific contexts. Some of the useful ApplicationContext i
 
 |Implementation Type |Description|
 |:---|:---|
-| ApplicationConfigApplicationContext | when using Spring in standalone Java applications and using annotations for configuration, we use this to initialize container and get bean objects.|
+| AnnotationConfigApplicationContext | when using Spring in standalone Java applications and using annotations for configuration, we use this to initialize container and get bean objects.|
 | AnnotationConfigWebApplicationContext | web based variant of AnnotationConfigApplicationContext |
 | ClassPathXmlApplicationContext | when we have spring bean configuration xml file in standalone application,then we use this to load file from classpath and get container object.|
 | FileSystemXmlApplicationContext| to load an XML-based Spring configuration file from the file system or from URLs. |
