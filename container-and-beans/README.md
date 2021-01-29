@@ -8,7 +8,7 @@ Framework's IoC Container.
 Spring IoC container gets initialized when the application starts and, when a bean is requested the dependencies 
 are injected automatically.
 
-![Alt text](./ioc container.jpg?raw=true "Title")
+![Alt text](./ioccontainer.jpg?raw=true "Title")
 
 ### ApplicationContext ###
 
