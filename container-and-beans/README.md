@@ -153,7 +153,14 @@ by providing configuration metadata.
 The scope of a bean defines the lifecycle and visibility of that bean in the contexts in which it is used. There are six 
 types of scopes according to the latest versions of Spring framework.
 
-**1 Singleton**
+1. [Singleton](#singleton)
+2. [Prototype](#prototype)
+3. [Request](#request)
+4. [Session](#session)
+5. [Application](#application)
+6. [WebSocket](#websocket)
+
+#### Singleton ####
 The container will create only one instance of the bean, and all requests to that bean will return the same object, 
 which is cached. Any change to the object will be reflected in all of it's references. If no scope is specified, 
 it is the default value. 
@@ -233,7 +240,7 @@ We get output as:
 PersonA name equals personB name ? true
 
 ```
-**2 Prototype**
+#### Prototype ####
 
 The container will return a new instance of the bean everytime the bean is requested.
 Let's change the scope of Person to `@Scope("prototype")` or to `@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)`.
@@ -271,7 +278,7 @@ PersonA name equals personB name ? false
 The scopes `request`, `session`, `application`, and `WebSocket` are available only in a web-aware application context 
 and often used less in practice.
 
-**3 Request**
+#### Request ####
 Creates a new instance for each Http request.
 
 Let's create a simple HelloMessageGenerator class.
@@ -330,7 +337,7 @@ Next, create a ScopesController and inject the HelloMessageGenerator bean to it.
 Each time the request is run, we see in console that the message value is reset to null, even though we changed it later
 in method. This is because a different instance is returned for each request.
 
-**4 Session**
+#### Session ####
 Creates an instance for each Http session.
 In above example, let's change the scope of HelloMessageGenerator to `@SessionScope`.
 
@@ -344,10 +351,10 @@ If we now rerun the application and make a request, for the first time we will s
 'Hi Bean'. Now if we again make request, we will see that 'Hi Bean' is logged twice. This is because the same
 instance of bean is returned for the entire session.
 
-**5 Application**
+#### Application ####
 Creates bean instance for the lifecycle of a ServletContext.
 
-**6 WebSocket**
+#### WebSocket ####
 Creates a particular WebSocket session.
 
 Reference : [Quick Guide to Spring Bean Scopes](https://www.baeldung.com/spring-bean-scopes)
