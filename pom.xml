@@ -27,6 +27,7 @@
 
     <modules>
         <module>container-and-beans</module>
+        <module>bean-life-cycle</module>
     </modules>
 
 </project>
