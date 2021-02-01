@@ -327,6 +327,8 @@ public class BeanLifeCycleApplication {
 When we run our application, we see the following output:
 ![Alt text](./lifecycleresult.jpg?raw=true "Output")
 
+All the methods are called exactly in the same order as depicted in the lifecycle diagram.
+
 References:
 - [Hooking Into the Spring Bean Lifecycle](https://reflectoring.io/spring-bean-lifecycle/)
 - [The Lifecycle of Spring Beans](https://medium.com/swlh/the-lifecycle-of-spring-beans-b0edb8936189)
