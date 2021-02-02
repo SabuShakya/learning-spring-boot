@@ -350,7 +350,7 @@ BackendDeveloper. This violates the dependency inversion principle. To follow th
 Developer and introduce an abstraction.
 
 ```java
-    import java.util.List;public interface Developer {
+    public interface Developer {
         void develop();
     }
 
