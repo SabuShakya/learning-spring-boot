@@ -40,7 +40,7 @@
     <modules>
         <module>container-and-beans</module>
         <module>bean-life-cycle</module>
-        <module>spring-mvc-workflow</module>
+        <module>spring-boot-rest-api</module>
     </modules>
 
 </project>
