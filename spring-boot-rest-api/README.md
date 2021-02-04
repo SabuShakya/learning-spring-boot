@@ -86,15 +86,20 @@ public class SpringBootRestApiApplication {
 
 ## @RequestBody ##
 -> If any method parameter is annotated with @RequestBody, Spring will bind the incoming HTTP request body to that property.
--> Behind the scenes, Spring will use HTTP message converters to convert the HTTP request body into domain object[deserialize request body to domain object], based on Accept or Content-Type header present in request. 
+-> Behind the scenes, Spring will use HTTP message converters to convert the HTTP request body into domain object
+[deserialize request body to domain object], based on Accept or Content-Type header present in request. 
 
 ## @ResponseBody ##
 -> If any method is annotated with it, the return value will be binded to an outgoing HTTP response body.
--> Here also, Spring will behind the scenes, use HTTP message converters to convert the return value to HTTP response body[serialize the object to response body] based on Content-Type header in HTTP request.
+-> Here also, Spring will behind the scenes, use HTTP message converters to convert the return value to HTTP response
+ body[serialize the object to response body] based on Content-Type header in HTTP request.
 
 ## Response Entity ##
 -> It represents the entire HTTP response. We can specify status code, headers and body  that goes into it.
+
 -> It comes with several constructors to carry the information we want to send in an HTTP response.
+
+-> https://www.baeldung.com/spring-response-entity
 
 ## @PathVariable ## 
 -> This annotation indicates that a method parameter should be bound to a URI template variable [the one in ‘{}’].

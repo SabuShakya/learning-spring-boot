@@ -77,7 +77,9 @@ public class RestApiController {
         currentUser.setSalary(user.getSalary());
 
         userService.updateUser(currentUser);
-        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+//        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+        return ResponseEntity.ok(currentUser);// It is same as above. ok() represents HTTP 200 response code with a body.
+//        ResponseEntity.ok().header("Custom header","").body("");
     }
 
     @DeleteMapping(value = "/user/{id}")
