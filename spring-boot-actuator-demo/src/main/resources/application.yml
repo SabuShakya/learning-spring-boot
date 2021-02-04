@@ -1,0 +1,11 @@
+#we can access All our actuator endpoints without requiring authentication
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  app:
+    name: Test Actuator
+    description: Test application for learning Actuator.
