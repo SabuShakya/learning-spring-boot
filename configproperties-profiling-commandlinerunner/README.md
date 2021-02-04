@@ -2,10 +2,10 @@
 Let us consider following entries in a property file(say 
 application.properties)
 ```properties
-user.firstName = Umesh
-user.lastName = Awasthi
-user.greeting = Hello Umesh
-user.blogName = umeshawasthi.com
+user.firstName = sabu
+user.lastName = shakys
+user.greeting = Hello Sabu
+user.blogName = sabushakya.com
 ```
 
 To use these properties in our application, we have to use it using @Value:
@@ -49,8 +49,8 @@ server.tomcat.ajpPort =444
 server.tomcat.jmxPort =445
 
 #Global Properties
-username=umesh
-welcomeMessage = Welcome Umesh!!!
+username=sabu
+welcomeMessage = Welcome Sabu!!!
 ```
 
 To access all the properties with prefix “mail”:
@@ -154,3 +154,147 @@ public class ConfigpropertiesProfilingCommandlinerunnerApplication {
 Reference:
 - https://www.baeldung.com/spring-yaml-propertysource
 - https://www.javadevjournal.com/spring-boot/configuration-properties-in-spring-boot/
+
+
+# Profiles #
+
+Profiles are a great tool for providing configuration properties for different environments like local development,
+test, staging and production environment.
+
+## @Profile Annotation ##
+ We can specify the environment by using the `@Profile` annotation as 
+ 
+```java
+@Configuration
+public class DefaultConfigurations {
+    // Skipped Configurations
+}
+@Configuration
+@Profile("dev")
+public class DevConfigurations {
+    // Skipped Configurations
+}
+@Configuration
+@Profile("prod")
+public class ProdConfigurations {
+    // Skipped Configurations
+}
+```
+ 
+ Spring profiles can also be used on a Bean, to map that bean to a particular profile.
+ 
+```java
+@Component
+@Profile("dev")
+public class DevDatasourceConfig{}
+
+@Component
+@Profile("!dev")// activate only if dev profile is not active
+public class DevDatasourceConfig{}
+```
+
+## SET PROFILES ##
+   - [Using Property File](#using-property-file)
+   - [Programmatically via WebApplicationInitializer Interface](#programmatically-via-webapplicationinitializer-interface)
+   - [Programmatically via ConfigurableEnvironment](#programmatically-via-configurableenvironment)
+   - [Maven Profile](#maven-profile)
+    
+### Using Property File ###
+
+```properties
+spring.profiles.active=development,staging
+```
+or,
+```yaml
+spring:
+  profiles:
+    active: dev
+```
+
+### Programmatically via WebApplicationInitializer Interface ###
+
+```java
+@Configuration
+public class MyWebApplicationInitializer implements WebApplicationInitializer {
+
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        servletContext.setInitParameter("spring.profiles.active", "dev");
+    }
+}
+```
+
+### Programmatically via ConfigurableEnvironment ###
+
+```java
+@Autowired
+private ConfigurableEnvironment env;
+...
+env.setActiveProfiles("someProfile");
+```
+
+### Maven Profile ###
+```xml
+<profiles>
+    <profile>
+        <id>dev</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+            <spring.profiles.active>dev</spring.profiles.active>
+        </properties>
+    </profile>
+    <profile>
+        <id>prod</id>
+        <properties>
+            <spring.profiles.active>prod</spring.profiles.active>
+        </properties>
+    </profile>
+</profiles>
+```
+Its value will be used to replace the *@spring.profiles.active@* placeholder in application.properties:
+
+```properties
+spring.profiles.active=@spring.profiles.active@
+```
+Next we need to enable resource filtering in pom.xml:
+```xml
+<build>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+        </resource>
+    </resources>
+    
+</build>
+```
+and append a -P parameter to switch which Maven profile will be applied:
+```
+mvn clean package -Pprod
+```
+
+## GET ACTIVE PROFILES ##
+
+By using environment:
+
+```java
+public class ProfileManager {
+    @Autowired
+    private Environment environment;
+
+    public void getActiveProfiles() {
+        System.out.println("active profile - " + environment.getProperty("spring.profiles.active"));
+        for (String profileName : environment.getActiveProfiles()) {
+            System.out.println("Currently active profile - " + profileName);
+        }  
+    }
+}
+```
+By injecting property spring.profiles.active
+
+```java
+@Value("${spring.profiles.active}")
+private String activeProfile;
+```

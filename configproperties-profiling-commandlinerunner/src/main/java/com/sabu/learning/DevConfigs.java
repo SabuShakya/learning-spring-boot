@@ -10,11 +10,10 @@ import org.springframework.context.annotation.PropertySource;
 @Getter
 @Setter
 @Configuration
-@Profile("prod")
+@Profile("dev")
 @ConfigurationProperties("mail")
-@PropertySource(factory = YamlPropertySourceFactory.class, value = "classpath:application-${spring.profiles.active}.yml")
-//@PropertySource("classpath:custom.properties") // if using .properties just add file name
-public class ApplicationConfigs {
+@PropertySource(factory = YamlPropertySourceFactory.class,value = "classpath:application-${spring.profiles.active}.yml")
+public class DevConfigs {
     private String from;
     private String host;
     private int port;

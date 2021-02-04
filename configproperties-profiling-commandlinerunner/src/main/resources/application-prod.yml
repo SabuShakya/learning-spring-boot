@@ -1,0 +1,7 @@
+mail:
+  from: prod@prod.com
+  host: prod@prod.com
+  port: 25
+  security:
+    username: prod
+    password: prod123

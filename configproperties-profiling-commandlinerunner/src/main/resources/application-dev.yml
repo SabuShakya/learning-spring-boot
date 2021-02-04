@@ -1,0 +1,7 @@
+mail:
+  from: dev@dev.com
+  host: dev@dev.com
+  port: 25
+  security:
+    username: dev
+    password: dev123
