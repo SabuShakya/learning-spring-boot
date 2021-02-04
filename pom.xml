@@ -43,6 +43,7 @@
         <module>spring-boot-rest-api</module>
         <module>dev-tools-demo</module>
         <module>spring-boot-actuator-demo</module>
+        <module>configproperties-profiling-commandlinerunner</module>
     </modules>
 
 </project>

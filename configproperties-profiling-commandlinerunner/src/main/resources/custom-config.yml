@@ -1,0 +1,7 @@
+mail:
+  from: test@test.com
+  host: test@test.com
+  port: 25
+  security:
+    username: test
+    password: test
