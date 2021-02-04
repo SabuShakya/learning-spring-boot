@@ -41,6 +41,7 @@
         <module>container-and-beans</module>
         <module>bean-life-cycle</module>
         <module>spring-boot-rest-api</module>
+        <module>dev-tools-demo</module>
     </modules>
 
 </project>
