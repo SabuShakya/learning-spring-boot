@@ -1,0 +1,45 @@
+"2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Starting SpringSl4jLoggingApplication using Java 1.8.0_131 on f1soft-sabu with PID 17632 (/home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot/spring-slf4j-logging/target/classes started by f1soft in /home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot)
+""2021-02-05 [restartedMain] DEBUG c.s.l.SpringSl4jLoggingApplication - Running with Spring Boot v2.4.2, Spring v5.3.3
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - No active profile set, falling back to default profiles: default
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Started SpringSl4jLoggingApplication in 1.856 seconds (JVM running for 2.434)
+""2021-02-05 [http-nio-8080-exec-1] INFO  c.s.l.LoggerControllerUsingAnnotation - INFO LOG USING log after annotating
+""2021-02-05 [http-nio-8080-exec-1] DEBUG c.s.l.LoggerControllerUsingAnnotation - DEBUG LOG USING log after annotating
+""2021-02-05 [http-nio-8080-exec-1] WARN  c.s.l.LoggerControllerUsingAnnotation - WARN LOG USING log after annotating
+""2021-02-05 [http-nio-8080-exec-1] ERROR c.s.l.LoggerControllerUsingAnnotation - ERROR LOG USING log after annotating
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Starting SpringSl4jLoggingApplication using Java 1.8.0_131 on f1soft-sabu with PID 17632 (/home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot/spring-slf4j-logging/target/classes started by f1soft in /home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot)
+""2021-02-05 [restartedMain] DEBUG c.s.l.SpringSl4jLoggingApplication - Running with Spring Boot v2.4.2, Spring v5.3.3
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - No active profile set, falling back to default profiles: default
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Started SpringSl4jLoggingApplication in 0.259 seconds (JVM running for 57.255)
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Starting SpringSl4jLoggingApplication using Java 1.8.0_131 on f1soft-sabu with PID 17632 (/home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot/spring-slf4j-logging/target/classes started by f1soft in /home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot)
+""2021-02-05 [restartedMain] DEBUG c.s.l.SpringSl4jLoggingApplication - Running with Spring Boot v2.4.2, Spring v5.3.3
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - No active profile set, falling back to default profiles: default
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Started SpringSl4jLoggingApplication in 0.277 seconds (JVM running for 95.07)
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Starting SpringSl4jLoggingApplication using Java 1.8.0_131 on f1soft-sabu with PID 18149 (/home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot/spring-slf4j-logging/target/classes started by f1soft in /home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot)
+""2021-02-05 [restartedMain] DEBUG c.s.l.SpringSl4jLoggingApplication - Running with Spring Boot v2.4.2, Spring v5.3.3
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - No active profile set, falling back to default profiles: default
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Started SpringSl4jLoggingApplication in 1.763 seconds (JVM running for 2.35)
+""2021-02-05 [http-nio-8080-exec-1] INFO  c.s.l.LoggerControllerUsingAnnotation - INFO LOG USING log after annotating
+""2021-02-05 [http-nio-8080-exec-1] DEBUG c.s.l.LoggerControllerUsingAnnotation - DEBUG LOG USING log after annotating
+""2021-02-05 [http-nio-8080-exec-1] WARN  c.s.l.LoggerControllerUsingAnnotation - WARN LOG USING log after annotating
+""2021-02-05 [http-nio-8080-exec-1] ERROR c.s.l.LoggerControllerUsingAnnotation - ERROR LOG USING log after annotating
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Starting SpringSl4jLoggingApplication using Java 1.8.0_131 on f1soft-sabu with PID 18149 (/home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot/spring-slf4j-logging/target/classes started by f1soft in /home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot)
+""2021-02-05 [restartedMain] DEBUG c.s.l.SpringSl4jLoggingApplication - Running with Spring Boot v2.4.2, Spring v5.3.3
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - No active profile set, falling back to default profiles: default
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Started SpringSl4jLoggingApplication in 0.333 seconds (JVM running for 631.787)
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Starting SpringSl4jLoggingApplication using Java 1.8.0_131 on f1soft-sabu with PID 24547 (/home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot/spring-slf4j-logging/target/classes started by f1soft in /home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot)
+""2021-02-05 [restartedMain] DEBUG c.s.l.SpringSl4jLoggingApplication - Running with Spring Boot v2.4.2, Spring v5.3.3
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - No active profile set, falling back to default profiles: default
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Started SpringSl4jLoggingApplication in 2.38 seconds (JVM running for 3.083)
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Starting SpringSl4jLoggingApplication using Java 1.8.0_131 on f1soft-sabu with PID 24547 (/home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot/spring-slf4j-logging/target/classes started by f1soft in /home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot)
+""2021-02-05 [restartedMain] DEBUG c.s.l.SpringSl4jLoggingApplication - Running with Spring Boot v2.4.2, Spring v5.3.3
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - No active profile set, falling back to default profiles: default
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Started SpringSl4jLoggingApplication in 0.236 seconds (JVM running for 473.281)
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Starting SpringSl4jLoggingApplication using Java 1.8.0_131 on f1soft-sabu with PID 24547 (/home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot/spring-slf4j-logging/target/classes started by f1soft in /home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot)
+""2021-02-05 [restartedMain] DEBUG c.s.l.SpringSl4jLoggingApplication - Running with Spring Boot v2.4.2, Spring v5.3.3
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - No active profile set, falling back to default profiles: default
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Started SpringSl4jLoggingApplication in 0.297 seconds (JVM running for 476.092)
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Starting SpringSl4jLoggingApplication using Java 1.8.0_131 on f1soft-sabu with PID 24547 (/home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot/spring-slf4j-logging/target/classes started by f1soft in /home/f1soft/Workspace/BACKEND_LEARNING/learning-spring-boot)
+""2021-02-05 [restartedMain] DEBUG c.s.l.SpringSl4jLoggingApplication - Running with Spring Boot v2.4.2, Spring v5.3.3
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - No active profile set, falling back to default profiles: default
+""2021-02-05 [restartedMain] INFO  c.s.l.SpringSl4jLoggingApplication - Started SpringSl4jLoggingApplication in 0.249 seconds (JVM running for 564.924)
+"
