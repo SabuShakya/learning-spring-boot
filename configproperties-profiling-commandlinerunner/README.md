@@ -298,3 +298,8 @@ By injecting property spring.profiles.active
 @Value("${spring.profiles.active}")
 private String activeProfile;
 ```
+
+References:
+
+- https://www.javadevjournal.com/spring/spring-profiles/
+- https://www.baeldung.com/spring-profiles
