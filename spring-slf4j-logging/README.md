@@ -149,6 +149,12 @@ For using log4j exclude the default logging provided by  the starter and add log
     </dependency>
     
     <!-- other dependencies -->
+    <!-- If using Lombok slf4j dependency is not required-->
+    <dependency>
+      	<groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+   </dependency>
+
     <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-log4j12</artifactId>
