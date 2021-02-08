@@ -45,6 +45,7 @@
         <module>spring-boot-actuator-demo</module>
         <module>configproperties-profiling-commandlinerunner</module>
         <module>spring-slf4j-logging</module>
+        <module>swagger</module>
     </modules>
 
 </project>
