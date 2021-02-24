@@ -47,6 +47,7 @@
         <module>spring-slf4j-logging</module>
         <module>swagger</module>
         <module>exception-handling</module>
+        <module>java-8-practice</module>
     </modules>
 
 </project>
