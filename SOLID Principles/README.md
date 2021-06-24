@@ -392,4 +392,4 @@ Also, low-level modules and their details depend on abstractions.
 Ref: [SOLID Principles: Dependency Inversion Principle](https://dzone.com/articles/solid-principles-dependency-inversion-principle)
 
 Reference: 
-- [Spring Guru Video on SOLID](https://springframework.guru/)
+- https://springframework.guru/solid-principles-object-oriented-programming/
