@@ -171,7 +171,9 @@ Objects of superclass shall be replaceable by objects of subclasses without brea
 it should pass the ‘Is a’ test. Violations will fail the ‘is a test’.
 
 
-For Details: [Liskov Substitution Principle in Java](https://www.baeldung.com/java-liskov-substitution-principle)
+For Details: 
+- [Liskov Substitution Principle in Java](https://www.baeldung.com/java-liskov-substitution-principle)
+- [Liskov Substitution Principle: SOLID design](https://medium.com/@radheshyamsingh_83359/liskov-substitution-principle-solid-design-f9d48500c2600)
 
 ## Interface Segregation Principle ##
 
