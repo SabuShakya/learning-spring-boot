@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @Profile("dev")
 @ConfigurationProperties("mail")
-@PropertySource(factory = YamlPropertySourceFactory.class,value = "classpath:application-${spring.profiles.active}.yml")
+@PropertySource(factory = YamlPropertySourceFactory.class, value = "classpath:application-${spring.profiles.active}.yml")
 public class DevConfigs {
     private String from;
     private String host;

@@ -14,11 +14,12 @@ public class Config {
 //    }
 
     @Bean
-    public ExampleUsingBeanPostProcessor exampleUsingBeanPostProcessor(){
+    public ExampleUsingBeanPostProcessor exampleUsingBeanPostProcessor() {
         return new ExampleUsingBeanPostProcessor();
     }
-    @Bean(initMethod = "onInit",destroyMethod = "onDestroy")
-    public HookExampleUsingInterfaces hookExampleUsingInterfaces(){
+
+    @Bean(initMethod = "onInit", destroyMethod = "onDestroy")
+    public HookExampleUsingInterfaces hookExampleUsingInterfaces() {
         return new HookExampleUsingInterfaces();
     }
 }

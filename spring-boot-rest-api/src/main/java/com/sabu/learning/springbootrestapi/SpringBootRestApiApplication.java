@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = {"com.sabu.learning.springbootrestapi"})
 public class SpringBootRestApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootRestApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootRestApiApplication.class, args);
+    }
 
 }

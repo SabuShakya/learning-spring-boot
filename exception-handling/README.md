@@ -1,46 +1,51 @@
 # Exception Handling #
 
-Spring boot by default gives us exception handling. But the details given by it interests more to developers rather
-than user. So we can add custom exception handlers to provide a customized response to the users.
-Let us first look at some common annotations used for exception handling.
+Spring boot by default gives us exception handling. But the details given by it interests more to developers rather than
+user. So we can add custom exception handlers to provide a customized response to the users. Let us first look at some
+common annotations used for exception handling.
 
 ### @ResponseStatus ###
+
 -> It allows us to modify the HTTP status of our response. It can be applied to:
-	- On the exception class itself
-	- Along with the @ControllerAdvice annotation on classes
-	- Along with the @ExceptionHandler annotation on methods
+- On the exception class itself - Along with the @ControllerAdvice annotation on classes - Along with the
+@ExceptionHandler annotation on methods
 
 ### @ExceptionHandler ###
--> The annotation can be used in methods of class annotated with @Controller or @ControllerAdvice.
--> It provides a lot of flexibility for handling exceptions.The exception handler method takes in an exception or a list 
-of exceptions as an argument that we want to handle in the defined method.
-If we don’t wish to use these annotations, then simply defining the exception as a parameter of the method will also do:
+
+-> The annotation can be used in methods of class annotated with @Controller or @ControllerAdvice. -> It provides a lot
+of flexibility for handling exceptions.The exception handler method takes in an exception or a list of exceptions as an
+argument that we want to handle in the defined method. If we don’t wish to use these annotations, then simply defining
+the exception as a parameter of the method will also do:
 
 ### @ExceptionHandler ###
+
 public ResponseEntity<String> handleNoSuchElementFoundException( NoSuchElementFoundException exception)
 
 ### @ControllerAdvice ###
-->  @ControllerAdvice is an annotation provided by Spring allowing you to write global code that can be applied to a 
-wide range of controllers — varying from all controllers to a chosen package or even a specific annotation.
-By default, @ControllerAdvice will apply to all classes that use the @Controller annotation (which extends to
-classes using @RestController). 
+
+->  @ControllerAdvice is an annotation provided by Spring allowing you to write global code that can be applied to a
+wide range of controllers — varying from all controllers to a chosen package or even a specific annotation. By default,
+@ControllerAdvice will apply to all classes that use the @Controller annotation (which extends to classes using
+@RestController).
 
 ### @RestControllerAdvice ###
+
 -> @RestControllerAdvice is just a syntactic sugar for @ControllerAdvice + @ResponseBody. @RestControllerAdvice
-annotation tells a controller that the object returned is automatically serialized into JSON and passed it to the 
+annotation tells a controller that the object returned is automatically serialized into JSON and passed it to the
 HttpResponse object.
 
 ### ResponseEntityExceptionHandler ###
--> ResponseEntityExceptionHandler is a convenient base class for controller advice classes. It provides exception 
-handlers for internal Spring exceptions. If we don’t extend it, then all the exceptions will be redirected to 
+
+-> ResponseEntityExceptionHandler is a convenient base class for controller advice classes. It provides exception
+handlers for internal Spring exceptions. If we don’t extend it, then all the exceptions will be redirected to
 DefaultHandlerExceptionResolver which returns a ModelAndView object.
 
 Create a separate package for exceptions.
 
 ![Alt Text](./exceptionFolder.jpg?raw=true "Folder")
 
-We will be implementing a simple custom exception. For that, we will create a GlobalExceptionHandler class, 
-a MyCustomException class and a GenericErrorResponse.
+We will be implementing a simple custom exception. For that, we will create a GlobalExceptionHandler class, a
+MyCustomException class and a GenericErrorResponse.
 
 ```java
 package com.sabu.exceptionhandling.exception;
@@ -113,14 +118,14 @@ public class MyController {
 }
 
 ```
+
 We run the application and try accessing the "/test" api.
 
 ![Alt Text](./exceptionResult.jpg?raw=true "result")
 
-Our GlobalExceptionHandler will only look at the exceptions thrown by controllers. They won't be handling the exceptions 
-thrown by the Filters.
-If we need to throw the custom error from the filter,like authentication filter of Jwt, we can use HandlerExceptionResolver
-to resolve the exception to our global exception controller.
+Our GlobalExceptionHandler will only look at the exceptions thrown by controllers. They won't be handling the exceptions
+thrown by the Filters. If we need to throw the custom error from the filter,like authentication filter of Jwt, we can
+use HandlerExceptionResolver to resolve the exception to our global exception controller.
 
 ```java
 import com.nimbusds.jwt.JWTClaimsSet;

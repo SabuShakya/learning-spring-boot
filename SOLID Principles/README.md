@@ -1,9 +1,9 @@
 # SOLID Principles #
 
-These are 5 principles focused on dependency management. Poor dependency management leads to code that is fragile, brittle 
-and hard to change. On the other hand, proper dependency management leads to code that is easy to maintain. The SOLID 
-principle helps to write better code by avoiding tight coupling and helping to maintain a code that is more testable and 
-easier to maintain.
+These are 5 principles focused on dependency management. Poor dependency management leads to code that is fragile,
+brittle and hard to change. On the other hand, proper dependency management leads to code that is easy to maintain. The
+SOLID principle helps to write better code by avoiding tight coupling and helping to maintain a code that is more
+testable and easier to maintain.
 
 1. [Single Responsibility Principle](#single-responsibility-principle)
 2. [Open/Closed Principle](#openclosed-principle)
@@ -12,12 +12,13 @@ easier to maintain.
 5. [Dependency Inversion Principle](#dependency-inversion-principle)
 
 ## Single Responsibility Principle ##
+
 ![Alt text](./SingleResponsibilityPrinciple.jpg?raw=true "Title")
 
-Every class should have a Single Responsibility,one single purpose, and a single reason to change. The classes should 
-be smaller and specific.
-The below class may seem fine. But, it has two responsibilities: manipulating and printing text. This violates the Single
-Responsibility principle.
+Every class should have a Single Responsibility,one single purpose, and a single reason to change. The classes should be
+smaller and specific. The below class may seem fine. But, it has two responsibilities: manipulating and printing text.
+This violates the Single Responsibility principle.
+
 ```java
 public class TextManipulator {
     private String text;
@@ -53,7 +54,9 @@ public class TextManipulator {
     }
 }
 ```
+
 So, we should remove the print responsibility to a different class,
+
 ```java
 public class TextPrinter {
     TextManipulator textManipulator;
@@ -105,21 +108,24 @@ public class TextManipulator {
     }
 }
 ```
+
 Ref: [Single Responsibility](https://www.baeldung.com/java-single-responsibility-principle)
 
 ## Open/Closed Principle ##
 
 ![Alt text](./OpenClosedPrinciple.jpg?raw=true "Title")
 
-Classes should be open for extension and closed for modifications. We should be able to extend class behaviour 
-without modifying it. Private variables should be used only when required and not be exposed without need.
+Classes should be open for extension and closed for modifications. We should be able to extend class behaviour without
+modifying it. Private variables should be used only when required and not be exposed without need.
 
 Example: Let's build OCP compliant calculator.
+
 ```java
 public interface CalculatorOperation {
     void perform();
 }
 ```
+
 We can then create Addition, Subtraction, Division class implementing the interface.
 
 ```java
@@ -149,7 +155,9 @@ public class Division implements CalculatorOperation {
     }
 }
 ```
+
 And finally, our calculator class doesn't need to implement new logic as we introduce new operators.
+
 ```java
 public class Calculator {
 
@@ -161,28 +169,29 @@ public class Calculator {
     }
 }
 ```
+
 Ref: [Open/Closed Principle in Java](https://www.baeldung.com/java-open-closed-principle)
 
 ## Liskov Substitution Principle ##
 
 ![Alt text](./LiskovSubtitutionPrinciple.jpg?raw=true "Title")
 
-Objects of superclass shall be replaceable by objects of subclasses without breaking the application. That is 
-it should pass the ‘Is a’ test. Violations will fail the ‘is a test’.
+Objects of superclass shall be replaceable by objects of subclasses without breaking the application. That is it should
+pass the ‘Is a’ test. Violations will fail the ‘is a test’.
 
+![Alt text](./LiskovExample.png?raw=true "Title")
 
-For Details: 
-- [Liskov Substitution Principle in Java](https://www.baeldung.com/java-liskov-substitution-principle)
-- [Liskov Substitution Principle: SOLID design](https://medium.com/@radheshyamsingh_83359/liskov-substitution-principle-solid-design-f9d48500c2600)
+For Details: [Liskov Substitution Principle in Java](https://www.baeldung.com/java-liskov-substitution-principle)
 
 ## Interface Segregation Principle ##
 
 ![Alt text](./InterfaceSegregationPrinciple.jpg?raw=true "Title")
 
-Make many interfaces that are client specific rather than one general purpose interface. Keep your components 
-focused and minimize dependencies between them.
+Make many interfaces that are client specific rather than one general purpose interface. Keep your components focused
+and minimize dependencies between them.
 
 Let us write a Payment interface.
+
 ```java
 public interface Payment {
     void initiatePayments();
@@ -192,7 +201,9 @@ public interface Payment {
     void initiateRePayment();
 }
 ```
+
 BankPaymentImplementation:
+
 ```java
 public class BankPayment implements Payment {
 
@@ -223,7 +234,9 @@ public class BankPayment implements Payment {
 
 }
 ```
+
 Next, we write the LoanPayment implementation:
+
 ```java
 public class LoanPayment implements Payment {
 
@@ -253,9 +266,10 @@ public class LoanPayment implements Payment {
     }
 }
 ```
-Here, we see the problem that, we have unwanted implementations  in both BankPayment and Loan Payment.
-By applying the ISP, we can solve the above issue by creating two different interface for BankPayment and Loan Payment, 
-which extends the Payment interface with common methods. 
+
+Here, we see the problem that, we have unwanted implementations in both BankPayment and Loan Payment. By applying the
+ISP, we can solve the above issue by creating two different interface for BankPayment and Loan Payment, which extends
+the Payment interface with common methods.
 
 ```java
 public interface Payment {
@@ -274,6 +288,7 @@ public interface Loan extends Payment {
 ```
 
 Then our implementation classes will be:
+
 ```java
 public class BankPayment implements Bank {
 
@@ -316,15 +331,15 @@ public class LoanPayment implements Loan {
     }
 }
 ```
+
 Ref: [Interface Segregation Principle in Java](https://www.baeldung.com/java-interface-segregation)
 
 ## Dependency Inversion Principle ##
 
 ![Alt text](./DependencyInversionPrinciple.jpg?raw=true "Title")
 
-High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstraction should
-not depend on details but details should depend on abstraction.
-Let's see an example:
+High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstraction should not
+depend on details but details should depend on abstraction. Let's see an example:
 
 ```java
     public class BackendDeveloper {
@@ -347,6 +362,7 @@ Let's see an example:
         }
     }
 ```
+
 Here we see that Project class is a high-level module that depends on lower level modules as FrontendDeveloper and
 BackendDeveloper. This violates the dependency inversion principle. To follow the principle we create an interface,
 Developer and introduce an abstraction.
@@ -389,8 +405,9 @@ Developer and introduce an abstraction.
         }
     }
 ```
-The outcome is that the Project class does not depend on lower level modules, but rather abstractions. 
-Also, low-level modules and their details depend on abstractions.
+
+The outcome is that the Project class does not depend on lower level modules, but rather abstractions. Also, low-level
+modules and their details depend on abstractions.
 Ref: [SOLID Principles: Dependency Inversion Principle](https://dzone.com/articles/solid-principles-dependency-inversion-principle)
 
 Reference: 

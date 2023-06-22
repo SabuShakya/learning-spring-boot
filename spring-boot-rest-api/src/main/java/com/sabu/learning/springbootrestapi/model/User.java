@@ -15,11 +15,11 @@ public class User {
 
     private double salary;
 
-    public User(){
-        id=0;
+    public User() {
+        id = 0;
     }
 
-    public User(long id, String name, int age, double salary){
+    public User(long id, String name, int age, double salary) {
         this.id = id;
         this.name = name;
         this.age = age;

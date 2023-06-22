@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoggerControllerUsingAnnotation {
 
     @GetMapping("/test")
-    public String testingLog(){
+    public String testingLog() {
         log.info("INFO LOG USING log after annotating");
         log.debug("DEBUG LOG USING log after annotating");
         log.warn("WARN LOG USING log after annotating");
         log.error("ERROR LOG USING log after annotating");
         log.trace("TRACE LOG USING log after annotating");
-        return  "Hello from the other side";
+        return "Hello from the other side";
     }
 }

@@ -1,6 +1,7 @@
 # @ConfigurationProperties #
-Let us consider following entries in a property file(say 
-application.properties)
+
+Let us consider following entries in a property file(say application.properties)
+
 ```properties
 user.firstName = sabu
 user.lastName = shakys
@@ -20,11 +21,12 @@ public class SimpleSpringPropertyTest {
 } 
 ```
 
-@Value(“${property}”) is handy and easy but becomes tedious when we have to read several properties.
-So instead we use *@ConfigurationProperties*. We create a simple POJO class to store our configuration properties by
-annotating it with `@Configuration` and `@ConfigurationProperties`.
+@Value(“${property}”) is handy and easy but becomes tedious when we have to read several properties. So instead we use *
+@ConfigurationProperties*. We create a simple POJO class to store our configuration properties by annotating it
+with `@Configuration` and `@ConfigurationProperties`.
 
 Let's assume we have given properties file.
+
 ```properties
 #Database Configuration
 
@@ -54,6 +56,7 @@ welcomeMessage = Welcome Sabu!!!
 ```
 
 To access all the properties with prefix “mail”:
+
 ```java
 @Getter
 @Setter
@@ -75,6 +78,7 @@ public class ApplicationConfigurationProp {
     }
 }
 ```
+
 If we have defined the properties in some other custom.properties file, we have to add
 *`@PropertySource(“classpath:custom.properties”)`*
 
@@ -90,8 +94,9 @@ public class ApplicationConfigurationProp {
 ```
 
 ## In case of YAML files ##
-@PropertySource doesn't load YAML files. But as of Spring 4.3, it comes with the factory attribute which can be used to 
-provide custom implementation of the *PropertySourceFactory*(Strategy interface for creating resource-based 
+
+@PropertySource doesn't load YAML files. But as of Spring 4.3, it comes with the factory attribute which can be used to
+provide custom implementation of the *PropertySourceFactory*(Strategy interface for creating resource-based
 PropertySource wrappers.), which will handle YAML file processing.
 
 ```java
@@ -109,9 +114,10 @@ public class YamlPropertySourceFactory implements PropertySourceFactory {
     }
 }
 ```
-In our custom implementation, first, we used the YamlPropertiesFactoryBean to convert the resources in YAML format to 
-the java.util.Properties object.Then, we simply returned a new instance of the PropertiesPropertySource, 
-which is a wrapper that allows Spring to read the parsed properties.
+
+In our custom implementation, first, we used the YamlPropertiesFactoryBean to convert the resources in YAML format to
+the java.util.Properties object.Then, we simply returned a new instance of the PropertiesPropertySource, which is a
+wrapper that allows Spring to read the parsed properties.
 
 ```java
 @Getter
@@ -152,9 +158,9 @@ public class ConfigpropertiesProfilingCommandlinerunnerApplication {
 ```
 
 Reference:
+
 - https://www.baeldung.com/spring-yaml-propertysource
 - https://www.javadevjournal.com/spring-boot/configuration-properties-in-spring-boot/
-
 
 # Profiles #
 
@@ -162,8 +168,9 @@ Profiles are a great tool for providing configuration properties for different e
 test, staging and production environment.
 
 ## @Profile Annotation ##
- We can specify the environment by using the `@Profile` annotation as 
- 
+
+We can specify the environment by using the `@Profile` annotation as
+
 ```java
 @Configuration
 public class DefaultConfigurations {
@@ -180,9 +187,9 @@ public class ProdConfigurations {
     // Skipped Configurations
 }
 ```
- 
- Spring profiles can also be used on a Bean, to map that bean to a particular profile.
- 
+
+Spring profiles can also be used on a Bean, to map that bean to a particular profile.
+
 ```java
 @Component
 @Profile("dev")
@@ -194,17 +201,20 @@ public class DevDatasourceConfig{}
 ```
 
 ## SET PROFILES ##
-   - [Using Property File](#using-property-file)
-   - [Programmatically via WebApplicationInitializer Interface](#programmatically-via-webapplicationinitializer-interface)
-   - [Programmatically via ConfigurableEnvironment](#programmatically-via-configurableenvironment)
-   - [Maven Profile](#maven-profile)
-    
+
+- [Using Property File](#using-property-file)
+- [Programmatically via WebApplicationInitializer Interface](#programmatically-via-webapplicationinitializer-interface)
+- [Programmatically via ConfigurableEnvironment](#programmatically-via-configurableenvironment)
+- [Maven Profile](#maven-profile)
+
 ### Using Property File ###
 
 ```properties
 spring.profiles.active=development,staging
 ```
+
 or,
+
 ```yaml
 spring:
   profiles:
@@ -234,6 +244,7 @@ env.setActiveProfiles("someProfile");
 ```
 
 ### Maven Profile ###
+
 ```xml
 <profiles>
     <profile>
@@ -253,12 +264,15 @@ env.setActiveProfiles("someProfile");
     </profile>
 </profiles>
 ```
+
 Its value will be used to replace the *@spring.profiles.active@* placeholder in application.properties:
 
 ```properties
 spring.profiles.active=@spring.profiles.active@
 ```
+
 Next we need to enable resource filtering in pom.xml:
+
 ```xml
 <build>
     <resources>
@@ -270,7 +284,9 @@ Next we need to enable resource filtering in pom.xml:
     
 </build>
 ```
+
 and append a -P parameter to switch which Maven profile will be applied:
+
 ```
 mvn clean package -Pprod
 ```
@@ -292,6 +308,7 @@ public class ProfileManager {
     }
 }
 ```
+
 By injecting property spring.profiles.active
 
 ```java

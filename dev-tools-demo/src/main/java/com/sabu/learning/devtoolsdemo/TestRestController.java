@@ -9,24 +9,24 @@ import java.time.LocalDateTime;
 public class TestRestController {
 
     @GetMapping("/")
-    public String sayHello(){
+    public String sayHello() {
         System.out.println("Testing dev tools say hello");
-        return "Hello! Time is "+ LocalDateTime.now();
+        return "Hello! Time is " + LocalDateTime.now();
     }
 
     @GetMapping("/workout")
-    public String getWorkout(){
+    public String getWorkout() {
         return "Learn Spring Boot devtools!";
     }
 
     @GetMapping("/test")
-    public String testDevTools(){
+    public String testDevTools() {
         System.out.println("testing devtools");
         return "Testing devtools";
     }
 
     @GetMapping("/oneMore")
-    public String oneMoreTest(){
+    public String oneMoreTest() {
         return "Running one more after enabling build automatic and registry :" +
                 "compiler.automake.allow.when.app.running!";
     }

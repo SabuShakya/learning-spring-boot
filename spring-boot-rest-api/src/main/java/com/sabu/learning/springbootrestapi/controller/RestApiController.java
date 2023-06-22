@@ -34,14 +34,14 @@ public class RestApiController {
     }
 
     @GetMapping(value = "/user/{id}")
-    public ResponseEntity<?> getUser(@PathVariable("id") long id){
-        logger.info("FETCHING USER WITH ID {}",id);
+    public ResponseEntity<?> getUser(@PathVariable("id") long id) {
+        logger.info("FETCHING USER WITH ID {}", id);
         User user = userService.findById(id);
-        if (user == null){
-            logger.error("User with id {} not found.",id);
-            return new ResponseEntity<>(new CustomErrorType("User with id "+ id + " not found."),HttpStatus.NOT_FOUND);
+        if (user == null) {
+            logger.error("User with id {} not found.", id);
+            return new ResponseEntity<>(new CustomErrorType("User with id " + id + " not found."), HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(user,HttpStatus.OK);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @PostMapping(value = "/user/")
@@ -51,7 +51,7 @@ public class RestApiController {
         if (userService.isUserExist(user)) {
             logger.error("Unable to create. A User with name {} already exist", user.getName());
             return new ResponseEntity<>(new CustomErrorType("Unable to create. A User with name " +
-                    user.getName() + " already exist."),HttpStatus.CONFLICT);
+                    user.getName() + " already exist."), HttpStatus.CONFLICT);
         }
         userService.saveUser(user);
 

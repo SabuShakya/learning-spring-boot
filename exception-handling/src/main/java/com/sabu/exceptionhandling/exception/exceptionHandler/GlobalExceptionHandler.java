@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {MyCustomException.class})
-    public ResponseEntity<?> myCustomErrorHandler(MyCustomException exception){
+    public ResponseEntity<?> myCustomErrorHandler(MyCustomException exception) {
         GenericErrorResponse response = new GenericErrorResponse(exception.getMessage(), "CODE_TEST");
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }

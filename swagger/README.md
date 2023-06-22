@@ -1,7 +1,9 @@
 # SWAGGER #
+
 Swagger is a library that allows having a well-documented REST API accessed in the browser via URL.
 
 Add maven dependency :
+
 ```xml
 <dependency>
   <groupId>io.springfox</groupId>

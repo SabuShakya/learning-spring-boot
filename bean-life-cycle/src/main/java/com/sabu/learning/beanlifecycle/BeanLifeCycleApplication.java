@@ -19,7 +19,7 @@ public class BeanLifeCycleApplication {
         HookExampleUsingInterfaces hookExampleUsingInterfaces = context.getBean(HookExampleUsingInterfaces.class);
         hookExampleUsingInterfaces.hookExampleUsingInterfaces();
 //        context.close();
-        ((ConfigurableApplicationContext)context).close();
+        ((ConfigurableApplicationContext) context).close();
     }
 
 }

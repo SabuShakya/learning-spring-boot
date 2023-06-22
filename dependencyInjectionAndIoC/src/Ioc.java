@@ -27,7 +27,7 @@ public class Ioc {
 //        }
 
         // 3. We inject an interface
-        public User(Database database){
+        public User(Database database) {
             this.database = database;
         }
 
@@ -44,7 +44,7 @@ public class Ioc {
         void persist(String data);
     }
 
-    public class MySqlDatabase implements  Database{
+    public class MySqlDatabase implements Database {
         public void persist(String data) {
             System.out.println("MySQL has persisted:" + data);
         }

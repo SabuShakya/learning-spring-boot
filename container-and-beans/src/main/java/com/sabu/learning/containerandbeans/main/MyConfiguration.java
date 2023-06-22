@@ -22,7 +22,7 @@ public class MyConfiguration {
 
     @Bean
     @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    public Person personPrototype(){
+    public Person personPrototype() {
         return new Person();
     }
 }

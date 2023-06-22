@@ -3,6 +3,7 @@
 ![Alt text](./beanlifecycle.png?raw=true "Title")
 
 ## Bean Creation Phase ##
+
 |||
 |---|:---|
 |Instantiation| Starting point. Spring will instantiate bean objects.|
@@ -24,23 +25,26 @@
 
 *Why do we need to Hook into bean lifecycle?*
 Hooking into bean lifecycle is a good way to extend the application in most cases. Other benefits:
+
 - [Acquiring Bean Properties (like bean name at runtime)](https://reflectoring.io/spring-bean-lifecycle/#acquiring-bean-properties)
 - [Dynamically Changing spring Bean Instances](https://reflectoring.io/spring-bean-lifecycle/#dynamically-changing-spring-bean-instances)
 - [Accessing Beans From the Outside of the Spring Context](https://reflectoring.io/spring-bean-lifecycle/#accessing-beans-from-the-outside-of-the-spring-context)
 
 Different Ways to Hook into Bean Lifecycle:
+
 - [Using Spring Interfaces](#using-spring-interfaces)
 - [Using JSR-250 Annotations](#using-jsr-250-annotations)
 - [Using Attributes of @Bean annotation](#using-attributes-of-bean-annotation)
 - [Using BeanPostProcessor](#using-beanpostprocessor)
 - [Using Aware Interfaces](#using-aware-interfaces)
 
-Best Practice, according to Spring Document preference is to use JSR-250 annotations(@PostConstruct, @PreDestroy) and then
-@Bean init-method and destroy-method options.
+Best Practice, according to Spring Document preference is to use JSR-250 annotations(@PostConstruct, @PreDestroy) and
+then @Bean init-method and destroy-method options.
 
 ### Using Spring interfaces ###
-We can implement InitializationBean interface to run custom operations in afterPropertiesSet() phase. Similarly,
-we can implement DisposableBean to call destroy method in destroy phase.
+
+We can implement InitializationBean interface to run custom operations in afterPropertiesSet() phase. Similarly, we can
+implement DisposableBean to call destroy method in destroy phase.
 
 ```java
 package com.sabu.learning.beanlifecycle.beans;
@@ -193,6 +197,7 @@ public class ExampleUsingAwareInterfaces implements BeanNameAware, BeanFactoryAw
 ```
 
 ### The Execution Order ###
+
 Let's add all the lifecycle hooks to our class HookExampleUsingInterfaces, and add a BeanPostProcessor implementation:
 
 ```java
@@ -276,6 +281,7 @@ public class ExampleUsingBeanPostProcessor implements BeanPostProcessor {
     }
 }
 ```
+
 Let's create a bean of HookExampleUsingInterfaces in our config class.
 
 ```java
@@ -301,7 +307,9 @@ public class Config {
 }
 
 ```
+
 And to our main method:
+
 ```java
 package com.sabu.learning.beanlifecycle;
 
@@ -324,11 +332,13 @@ public class BeanLifeCycleApplication {
     }
 }
 ```
+
 When we run our application, we see the following output:
 ![Alt text](./lifecycleresult.jpg?raw=true "Output")
 
 All the methods are called exactly in the same order as depicted in the lifecycle diagram.
 
 References:
+
 - [Hooking Into the Spring Bean Lifecycle](https://reflectoring.io/spring-bean-lifecycle/)
 - [The Lifecycle of Spring Beans](https://medium.com/swlh/the-lifecycle-of-spring-beans-b0edb8936189)

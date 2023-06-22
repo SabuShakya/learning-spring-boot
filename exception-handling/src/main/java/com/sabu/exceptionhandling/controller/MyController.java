@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MyController {
 
     @GetMapping("/test")
-    public String testException(){
+    public String testException() {
         throw new MyCustomException("This is a custom exception as bad request.");
     }
 }

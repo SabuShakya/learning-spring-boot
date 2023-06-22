@@ -12,9 +12,10 @@ public class SwaggerController {
     }
 
     @PostMapping("/add")
-    public Integer add(@RequestBody Add add)throws Exception {
+    public Integer add(@RequestBody Add add) throws Exception {
         return add.number1 + add.number2;
     }
+
     /**
      * just for a quick example fields are public
      */
