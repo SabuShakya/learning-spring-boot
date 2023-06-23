@@ -339,76 +339,99 @@ Ref: [Interface Segregation Principle in Java](https://www.baeldung.com/java-int
 ![Alt text](./DependencyInversionPrinciple.jpg?raw=true "Title")
 
 High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstraction should not
-depend on details but details should depend on abstraction. Let's see an example:
+depend on details but details should depend on abstraction.
+
+Let's see an example:
+
+![Alt text](./dependencyInversion.png?raw=true "Title")
 
 ```java
-    public class BackendDeveloper {
-        public void writeJava(){
+    public class CardPayment {
+        public void pay(String cardNum, Double amount) {
             //METHOD BODY
         }
     }
-    public class FrontendDeveloper {
-        public void writeJavaScript(){
+    public class Paypal {
+        public void pay(User user, Double amount) {
             //METHOD BODY
         }
     }
 
-    public class Project {
-        private BackendDeveloper backendDev = new BackendDeveloper();
-        private FrontendDeveloper frontendDev = new FrontendDeveloper();
-        public void implement() {
-            backend.writeJava();
-            frontend.writeJavascript();
+    public class Store {
+        private CardPayment cardPayment = new CardPayment();
+
+        private String cardNumber;
+
+        public void paymentOnPurchase(Double amount) {
+            cardPayment.pay(cardNumber, amount);
         }
     }
 ```
 
-Here we see that Project class is a high-level module that depends on lower level modules as FrontendDeveloper and
-BackendDeveloper. This violates the dependency inversion principle. To follow the principle we create an interface,
-Developer and introduce an abstraction.
+Here we see that Store class is a high-level module that depends on lower level modules as CardPayment.
+This violates the dependency inversion principle. Also, if we need to change the payment method to paypal, we'll
+have to change the whole paymentOnPurchase code as paypal needs user and amount to make a pay.
+So to follow the principle we create an interface, PaymentProcessor and introduce an abstraction.
 
 ```java
-    public interface Developer {
-        void develop();
+    public interface PaymentProcessor {
+        void pay(Double amount);
     }
 
-    public class BackendDeveloper implements Developer{
+    public class CardPayment implements PaymentProcessor {
+
+        private String cardNumber;
+        
+        public CardPayment(String cardNumber) {
+            this.cardNumber = cardNumber;
+        }
         
         @Override
-        public void develop(){
-            writeJava();
+        public void pay(Double amount){
+            cardPay(cardNumber, amount);
         }       
 
-        public void writeJava(){
+        public void cardPay(String cardNum, Double amount){
             //METHOD BODY
         }
     }
-    public class FrontendDeveloper implements Developer {
+    
+    public class Paypal implements PaymentProcessor {
+
+        private User user;
+
+        public Paypal(User user) {
+            this.user = user;
+        }
     
         @Override
-        public void develop(){
-            writeJavaScript();
+        public void pay(Double amount){
+            paypalPay(user, amount);
         }
-        public void writeJavaScript(){
+        
+        public void paypalPay(User user, Double amount){
             //METHOD BODY
         }
     }
 
-    public class Project {
-        private List<Developer> developerList;
+    public class Store {
+        private PaymentProcessor paymentProcessor;
         
-        public Project(List<Developer> developers){
-            this.developerList = developers;
-        }   
-        public void implement() {
-            developerList.forEach(developer -> developer.develop());
+        public Store(PaymentProcessor paymentProcessor){
+            this.paymentProcessor = paymentProcessor;
+        }
+        
+        public void paymentOnPurchase(Double amount) {
+            paymentProcessor.pay(amount);
         }
     }
 ```
 
-The outcome is that the Project class does not depend on lower level modules, but rather abstractions. Also, low-level
-modules and their details depend on abstractions.
-Ref: [SOLID Principles: Dependency Inversion Principle](https://dzone.com/articles/solid-principles-dependency-inversion-principle)
+The outcome is that the Store class does not depend on lower level modules, but rather abstraction 'PaymentProcessor'.
+Now the store can use any payment method without having to change its code. We just need to pass the implementation of 
+the payment that we want to use.
+
+Ref: [Dependency Inversion Principle Explained - SOLID Design Principles](https://youtu.be/9oHY5TllWaU)
 
 Reference: 
 - https://springframework.guru/solid-principles-object-oriented-programming/
