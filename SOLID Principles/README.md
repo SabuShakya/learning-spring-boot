@@ -422,7 +422,7 @@ So to follow the principle we create an interface, PaymentProcessor and introduc
         }
         
         public void paymentOnPurchase(Double amount) {
-            paymentProcessor.pay(cardNumber, amount);
+            paymentProcessor.pay(amount);
         }
     }
 ```
